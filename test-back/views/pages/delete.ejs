@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pitchboy-Test | Suppression de ville</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <form action="/delete" method="post">
+                <fieldset>
+                    <h3>Supression</h3>
+                    <label>Code postal</label>
+                    <input type ="text" id='code_postal' name="code_postal" required>
+                    <br>
+                    <button type ="reset">Annuler</button>
+                    <button type ="submit">Rechercher</button>
+                </fieldset>
+            </form>
+            <form action="/delete" method="post">
+                <% if(result.length != 0) { %>
+                    <fieldset>
+                        <h3>Choisissez les villes à supprimer</h3>
+                            <% for(i in result) { %>
+                                <label><%- result[i].fields.nom_de_la_commune %></label>
+                                <input type="checkbox" id="recordid-<%- result[i].recordid%>" name="recordid-<%- result[i].recordid%>">
+                                <br>
+                            <% } %>
+                        <br>
+                        <button type ="submit">Cliquez pour supprimer la sélection</button>
+                    </fieldset>
+                <% } %>
+            </form>
+        </main>
+    </body>
+</html>

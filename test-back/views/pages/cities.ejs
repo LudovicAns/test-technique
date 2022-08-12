@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pitchboy-Test | Toutes les villes</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <table>
+                <caption>Villes</caption>
+                <thead>
+                    <tr>
+                        <th>Commune</th>
+                        <th>Libelle</th>
+                        <th>Code postal</th>
+                        <th>Coordonnées GPS</th>
+                        <th>Code Insee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Without pagination system, lags will be HUGE :c -->
+                    <% for(i in cities) { %>
+                        <tr>
+                            <th><%- cities[i].fields.nom_de_la_commune %></th>
+                            <th><%- cities[i].fields.libelle_d_acheminement %></th>
+                            <th><%- cities[i].fields.code_postal %></th>
+                            <th><%- cities[i].fields.coordonnees_gps %></th>
+                            <th><%- cities[i].fields.code_commune_insee %></th>
+                      </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pitchboy-Test | Recherche de ville</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <form action="/search" method="POST">
+                <fieldset>
+                    <h3>Recherche par code postal</h3>
+                    <label>Code postal</label>
+                    <input type ="text" id='code_postal' name="code_postal" required>
+                    <br>
+                    <button type ="reset">Annuler</button>
+                    <button type ="submit">Rechercher</button>
+                </fieldset>
+            </form>
+            <table>
+                <caption>Villes</caption>
+                <thead>
+                    <tr>
+                        <th>Commune</th>
+                        <th>Libelle</th>
+                        <th>Code postal</th>
+                        <th>Coordonnées GPS</th>
+                        <th>Code Insee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Without pagination system, lags will be HUGE :c -->
+                    <% for(i in result) { %>
+                        <tr>
+                            <th><%- result[i].fields.nom_de_la_commune %></th>
+                            <th><%- result[i].fields.libelle_d_acheminement %></th>
+                            <th><%- result[i].fields.code_postal %></th>
+                            <th><%- result[i].fields.coordonnees_gps %></th>
+                            <th><%- result[i].fields.code_commune_insee %></th>
+                      </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

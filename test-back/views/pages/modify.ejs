@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pitchboy-Test | Modification de ville</title>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <!-- This can be add to partials if I have time. -->
+            <form action="/modify" method="post">
+                <fieldset>
+                    <h3>Modification</h3>
+                    <label>Code postal</label>
+                    <input type ="text" id='code_postal' name="code_postal" required>
+                    <br>
+                    <button type ="reset">Annuler</button>
+                    <button type ="submit">Rechercher</button>
+                </fieldset>
+            </form>
+            <!-- This can be add to partials if I have time. -->
+
+            <form action="/modify" method="post">
+                <% for(i in result) { %>
+                    <br>
+                    <fieldset>
+                        <h3>Modification de <%- result[i].fields.nom_de_la_commune%></h3>
+                        <label>Commune</label>
+                        <input type="text" id="nom_de_la_commune-<%- result[i].recordid %>" name="nom_de_la_commune-<%- result[i].recordid %>" placeholder="<%- result[i].fields.nom_de_la_commune%>">
+                        <br>
+                        <label>Libelle</label>
+                        <input type="text" id="libelle_d_acheminement-<%- result[i].recordid %>" name="libelle_d_acheminement-<%- result[i].recordid %>" placeholder="<%- result[i].fields.libelle_d_acheminement%>">
+                        <br>
+                        <label>Code postal</label>
+                        <input type="text" id="code_postal-<%- result[i].recordid %>" name="code_postal-<%- result[i].recordid %>" placeholder="<%- result[i].fields.code_postal%>">
+                        <br>
+                        <label>Coordonnées GPS</label>
+                        <input type="text" id="coordonnees_gps-<%- result[i].recordid %>" name="coordonnees_gps-<%- result[i].recordid %>" placeholder="<%- result[i].fields.coordonnees_gps%>">
+                        <br>
+                        <label>Code Insee</label>
+                        <input type="text" id="code_commune_insee-<%- result[i].recordid %>" name="code_commune_insee-<%- result[i].recordid %>" placeholder="<%- result[i].fields.code_commune_insee%>">
+                        <br>
+                        <button type ="reset">Annuler</button>
+                        <button type ="submit">Modifier</button>
+                    </fieldset>
+                <% } %>
+            </form>
+        </main>
+    </body>
+</html>
