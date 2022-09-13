@@ -1,0 +1,19 @@
+.Card {
+    width: 260px;
+    min-height: 500px;
+    border: 1px;
+    border-style: solid;
+    padding: 6px;
+    margin: 6px;
+}
+
+.Card * {
+    padding: 0;
+    margin: 0;
+}
+
+.Card img {
+    height: 70%px;
+    width: 100%;
+    margin: 0 auto;
+}
