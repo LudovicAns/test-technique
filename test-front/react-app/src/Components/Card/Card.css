@@ -1,0 +1,11 @@
+.Card {
+    width: 269px;
+    height: 350px;
+    cursor: pointer;
+    box-shadow: 10px 10px 10px black;
+}
+.Card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}

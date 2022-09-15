@@ -1,0 +1,11 @@
+.movies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 10px;
+}
+
+.Home {
+    color: #f1f1f1;
+}
