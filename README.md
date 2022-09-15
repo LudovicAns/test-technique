@@ -60,3 +60,4 @@ Votre rendu final devra comprendre :
 - __Ajout d'un système de rating__: Un utilisateur peut ajouter une note sur chaque film.</br>
 
 Bon courage ! 
+Start
