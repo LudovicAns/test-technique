@@ -13,7 +13,7 @@ export default function Resume() {
   const request = id + "?api_key=" + apiKey + "&language=" + language;
   const requestURL = url + request;
 
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState();
 
   useEffect(() => {
     fetch(requestURL)
@@ -21,7 +21,7 @@ export default function Resume() {
       .then((data) => {
         setMovie(data);
       });
-  }, [id]);
+  }, [id, requestURL]);
 
   return (
     <div className="Resume">

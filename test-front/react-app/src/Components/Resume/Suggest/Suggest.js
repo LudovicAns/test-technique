@@ -7,7 +7,7 @@ import './Suggest.css'
 export default function Suggest(props) {
 
   const id = props.id;
-  const [suggest, setSuggest] = useState(null);
+  const [suggest, setSuggest] = useState([]);
 
   const apiKey = "ad2c28e0345278f3c8b002efddadf28f";
   const language = "fr-FR";
@@ -18,12 +18,12 @@ export default function Suggest(props) {
   useEffect(() => {
     fetch(requestURL)
     .then(response => response.json())
-    .then(data => setSuggest(data));
-  }, [id]);
+    .then(data => setSuggest(data.results));
+  }, [id, requestURL]);
 
   return (
     <div className='Suggest'>
-      {suggest && suggest.results.map(movie => <Card movie={movie} />)}
+      {suggest.map(movie => <Card movie={movie} />)}
     </div>
   )
 }

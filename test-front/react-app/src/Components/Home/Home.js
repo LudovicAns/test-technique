@@ -13,7 +13,7 @@ export default function Home() {
   const request = "movie?api_key=" + apiKey + "&language=" + language + "&sort_by=" + sortBy;
   const requestURL = url + request;
 
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
 
   const reversSort = () => {
     if (sortBy === 'popularity.desc') {
@@ -26,15 +26,15 @@ export default function Home() {
   useEffect(() => {
     fetch(requestURL)
     .then(response => response.json())
-    .then(data => setMovies(data));
-  }, [sortBy]);
+    .then(data => setMovies(data.results));
+  }, [sortBy, requestURL]);
 
   return (
     <div className='Home'>
       <label htmlFor="sort">Triage par date de sortie : </label>
       <button id='sort' onClick={reversSort}>{sortBy === 'release_date.desc' ? '✅' : '❌'}</button>
       <div className="movies">
-        {movies && movies.results.map(movie => <Card key={movie.id} movie={movie}/>)}
+        {movies.map(movie => <Card key={movie.id} movie={movie}/>)}
       </div>
       
     </div>
